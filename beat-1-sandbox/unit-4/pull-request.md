@@ -15,15 +15,11 @@ label is not graded.
 
 **Pull request**
 
-[Link to the pull request you opened. It must be the pull request's own page on the Path
-Review repo, not your fork's branch page.]
+https://github.com/codepath/pathreview-ai301-fa26-s3/pull/272
 
 **Branch**
 
-[The name of the branch the pull request comes from, exactly as it appears in your fork.
-The naming shape is a type prefix, then the issue number, then a short description. **The
-issue number in the branch name must be the number of the issue the pull request fixes** —
-a name carrying any other number does not satisfy this field.]
+`fix/68-empty-keyword-index`
 
 ## Eval iterations
 
@@ -32,28 +28,49 @@ fields.
 
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+1. Initial full run: `agreement: 19/20 scored items  (bar: 18/20: PASS)`
+2. Selective post-revision run with `pkg-04`, `pkg-07`, `pkg-14`, and
+   `pkg-19` plus calibration package `calib-04`: `agreement: 4/4 scored items`
+   (the calibration package also agreed and is not included in the score).
+3. Confirming full run: `agreement: 19/20 scored items  (bar: 18/20: PASS)`
 
 **Package analysis**
 
-[Pick one scored package (`pkg-01` through `pkg-20` — the four `calib-` packages are never
-scored). Name it by id, say what your rubric decided and what the gold label said, and
-explain why your rubric read it that way.]
+For `pkg-19`, my final rubric returned **accept**, and the gold label was also
+**accept**. The diff contains only the planned single-quote emitter-state fix
+and its round-trip regression test, while the description accurately names
+both. The evidence shows the issue input producing the dedented quote before
+the fix and a byte-identical round trip after it, followed by `go test ./...`
+passing. Its two diagnostic controls are reported unchanged rather than pasted
+in full. My initial wording rejected the package because it demanded full
+output for every plan test item, even supplemental controls. I revised the
+check to require decisive evidence for every promised trigger or failure mode
+while allowing control summaries when the primary before/after and regression
+suite are both concrete.
 
 **Check rationale**
 
-[Quote one check from the `rubric.md` you uploaded to `tools/pr-precheck/`, exactly as it reads now.
-Then say why it reads that way — what you revised to get there, or what you rejected in
-favour of it.]
+> | Reproduction evidence proves the outcome | The candidate test-evidence section's commands and actual before/after artifacts read against the reproduction and the triggers, failure modes, and controls named in the plan's test plan. | Pass when evidence exercises the real failing path, shows an observable pre-fix failure and distinguishable post-fix outcome, and covers every still-promised failure mode. Supplemental diagnostic controls may be reported unchanged without full output when the primary before/after is decisive and a relevant regression suite is shown. An intentionally deferred failure mode passes only when the plan's Deviations and description both say so. Fail for summaries such as “works locally,” evidence from an unchanged control path, or silence about a promised trigger or failure mode. | required |
+
+I wrote this check around observable failure modes rather than the number or
+format of pasted commands. The initial version treated every control in a test
+plan as if it were another bug trigger, which rejected `pkg-19` despite its
+byte-identical primary before/after and complete regression-suite result. The
+revision distinguishes diagnostic controls from promised failure modes without
+weakening the requirement to exercise the real changed path. The explicit
+failure examples preserve the rejection of packages that say only “tested
+locally” or test a working control instead of the bug.
 
 **Trade-offs**
 
-[Every check gives something up. Any one of these is a complete answer: a package whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+Allowing supplemental controls to be summarized gives up direct visibility
+into those particular control runs. A PR could theoretically regress a control
+while truthfully proving the main issue path. I accept that risk only when the
+primary before/after is decisive and a relevant regression suite is shown. I
+re-ran three not-tested canaries—`pkg-04`, `pkg-07`, and `pkg-14`—plus
+`calib-04`; all four stayed rejected because each omitted or avoided an actual
+promised trigger or failure mode, while `pkg-19` changed to the intended
+accept.
 
 ---
 
