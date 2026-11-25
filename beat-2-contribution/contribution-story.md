@@ -1,282 +1,186 @@
-# Contribution: [Issue Title]
+# Contribution: Direct tests for the context migration summary and action labels
 
-Path: `beat-2-contribution/contribution-story.md`
+**Contribution Number:** [1]  
+**Student:** Adhik Adhikari  
+**GitHub Username:** adhik-adhikari  
+**Issue:** https://github.com/memtomem/memtomem/issues/3256  
+**Pull Request:** https://github.com/memtomem/memtomem/pull/3611
 
-This file is Assignment 5, and it is graded at the path above; a copy kept anywhere else in
-the repository is not read. **Keep every section header below under its exact name** — the
-format criteria grade exactly that. Your course repo link is the whole submission: no tool
-files and no evidence uploads are part of Assignment 5.
-
-**Contribution Number:** [1]
-**Student:** [Student name]
-**GitHub Username:** [your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comments upstream are identified by this name.]
-**Issue:** [GitHub issue link]
-**Pull Request:** [GitHub PR link, once opened]
-
-One repository, built across units 5 to 8, telling the whole story of your real
-contribution. Fill it as you work, not at the end — the sections below ask for evidence that
-is far easier to write down as it happens than to reconstruct in the last weekend.
-
-Contribution Number stays `[1]` unless you make more than one contribution this term; it
-just numbers them.
-
----
+Codex assisted with the search, test implementation, verification, and write-up. The dated entries record the work performed on November 25.
 
 ## Toolkit
 
-Every story section below, from Why I Chose This Issue through Pull
-Request, ends with a Toolkit block: which tool did that phase's work
-and how you used it, what it produced, what difficulties or
-shortcomings it presented, and what you changed or would change
-because of them. Together the blocks are the thread the rubric's
-Toolkit points read, and they are the raw material for your unit-9
-portfolio, so keep them current as you work rather than
-reconstructing them later.
+**Unit 5: Scouted Python issues — November 25, 2026**
 
-A Toolkit block looks like this (copy it into each story section and
-fill it there):
+The broad GitHub search returned 100 of 1,234 matches for open, unassigned Python issues with the good-first-issue label and API in the title. Ranking by fewest comments first surfaced a catalog call, a game UI task, and duplicate results from one repository. The next-pass strategy favors test or API-validation work and limits the first pass to one result per repository.
 
-```text
-**Toolkit**
+**Unit 6: Prepared the voice guard and repository notes — November 25, 2026**
 
-- Tool: [which tool did this phase's work, and how you used it]
-- What it produced: [described in a sentence or a short excerpt]
-- Difficulties: [what fought you or fell short, or "none met"]
-- What changed: [the patch, revision, or workaround, what you would
-  update, or "nothing"]
-```
+The upstream voice guide now calls for a concrete first step and a date for sharing results in each claim. The repository notes record the `uv` commands and the difference between claiming an issue and signing the agreement before merge. Claude Code was unavailable, so Codex checked the drafts against the voice and reproduction rules and the claim went through GitHub.
 
-This section also keeps one short dated entry per week of tool work,
-starting below: what you built or changed that week, what broke, and
-what you changed because of it. The blocks tell the story where it
-happened; these entries are the toolkit's own timeline.
+**Unit 7: Tested the patch with the project commands — November 25, 2026**
 
-All four entries are graded. Keep every heading below, and fill each
-one in the week it belongs to.
+The manifest records Ruff lint, Ruff formatting, the non-Ollama suite, and the focused pytest file. Its local checks passed on the changed migration tests and caught the deliberately swapped output groups. The Claude-backed ship-gate could not complete in this environment, so the results and the remaining broader check are explicit in the PR.
 
-**Unit 5: [one line on the tool work]**
+**Unit 8: Checked PR state against the maintainer playbook — November 25, 2026**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
-
-**Unit 6: [one line on the tool work]**
-
-[2-4 sentences: the voice-guard, the repo-memory file. What broke or
-fell short, and what changed because of it. "Nothing broke" counts when
-it is true - say how you know.]
-
-**Unit 7: [one line on the tool work]**
-
-[2-4 sentences: the ship-gate and your gate manifest. What it produced
-on your real branch, what fought you, what changed because of it.]
-
-**Unit 8: [one line on the tool work]**
-
-[2-4 sentences: the PR-monitor and your playbook. What it read, what it
-drafted, what you did with the draft.]
-
----
+The playbook uses the project's five-business-day first-response target, even though five recent external merged PRs received a response or merged in roughly 10–101 minutes. The PR thread and checks were read directly from GitHub because the course monitor needs an authenticated GitHub CLI and Claude Code. The follow-up draft was a private wait note: finish validation and leave the thread quiet while maintainer feedback is pending.
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs in your own words: how you searched, what your scan
-surfaced, what your scout's verdict said, why this issue fits your
-profile, and what you hope to learn. If your scout's verdict on it
-was reject and you chose it anyway, say so here and say why; choosing
-against your own tool silently is what loses points. Close with an
-honest read of the tool itself: where the scout fell short on a real
-wild search and what you changed or would change, or what convinced
-you it held up. **Record the link to your claim comment in this section too.**
-Not claimed yet? Write `claim pending` and today's date where the link goes,
-and add the link the moment your claim lands.]
+My fit profile lists Python backend work and an interest in search and AI tooling. The broad API query showed that a keyword can match a title without matching the work I want to do. The CodePath Issue Selection site was a better source for the final pick. I filtered for Python and good first issues, then looked at three memtomem testing issues: #3255, #3256, and #3257.
+
+The course scout rubric, applied in Codex, rejected #3255 because it was closed. It accepted #3256 as straightforward because the issue named two pure Python helpers, one new test file, and an exact way to prove the test mattered. #3257 was also a straightforward candidate for a different formatter. I picked #3256 because the CLI and MCP preview share the summary helper, so I could test a piece of backend behavior used in two places. The tracker still offered a Claim button for a closed issue, which made checking the actual GitHub state part of the selection process.
+
+**Claim comment:** https://github.com/memtomem/memtomem/issues/3256#issuecomment-7177175269
 
 **Toolkit**
 
-- Tool: issue-scout (your scout: your search strategy, your rubric),
-  and how you used it
-- What it produced: [the scan and its verdict on this issue, described]
-- Difficulties: [where it fell short, or "none met" if none did]
-- What changed: [what you patched or would update, or "nothing"]
-
----
+- Tool: The issue-scout workflow, with GitHub REST for the search and Codex for the rubric checks.
+- What it produced: A broad scan and three direct tracker evaluations. #3256 passed the required checks and had a one-file footprint.
+- Difficulties: Search rank favored low comment counts and repeated one repository. Tracker availability could lag GitHub.
+- What changed: The next-pass search is narrower. The Unit 6 scope-feasible patch leaves caveats in a separate difficulty note, and live GitHub state is verified before claiming.
 
 ## Understanding the Issue
 
 **Problem Description**
 
-[In your own words, what is broken or missing?]
+The migration preview had no direct tests for the helpers that turn migration rows into its summary and action labels.
 
 **Expected Behavior**
 
-[What should happen?]
+The summary reports each recognized state in a stable order. A dirty row shows the flat-to-directory label when its target directory is absent and the collision label when that directory already exists. Tests should detect changes to those outputs.
 
 **Current Behavior**
 
-[What actually happens?]
+On the base commit, the existing tests covered parts of the CLI preview, including the normal flat-to-directory label. They left the group order and the two dirty-row labels without direct assertions.
 
 **Affected Components**
 
-[Which parts of the codebase are involved?]
+`packages/memtomem/src/memtomem/cli/context_bundle_cmd.py` contains `_summarize_migrate_rows` and `_migrate_action_label`. The CLI and the MCP preview use the summary. The test gap is covered in `packages/memtomem/tests/test_context_migrate_summary.py`.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
-
----
+- Tool: GitHub issue and source inspection with `rg`.
+- What it produced: The two formatting helpers, the CLI/MCP call sites, and the existing CLI assertion.
+- Difficulties: The issue is about missing coverage. The existing command runs normally.
+- What changed: The reproduction uses a test inventory and a controlled order change.
 
 ## Reproduction Process
 
 **Environment Setup**
 
-[What a stranger would need to stand this up: your operating system,
-the relevant versions (language, runtime, package manager, the project
-itself), and how you set the project up. Then the challenges you faced
-and how you solved them, or that none came up.]
+Linux x86_64, Python 3.12.14, uv 0.13.9, pytest 9.2.0, memtomem 0.7.14. The base commit was `d38baccc84d117430c949582c8bef52f0f954a06`. From the repository root, `uv sync --locked` installed the workspace and test tools. This Python-only check needed no external service.
 
 **Steps to Reproduce**
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. Check out the base commit and run `uv sync --locked`.
+2. Search `packages/memtomem/tests` for `_summarize_migrate_rows` and `_migrate_action_label`. There are no direct calls on that commit.
+3. Run `uv run --locked pytest -q packages/memtomem/tests/test_context_migrate.py`. It passes even with the direct coverage missing.
 
 **Reproduction Evidence**
 
-- **Commit showing reproduction:** [link to commit in your fork]
-- **Screenshots/logs:** [if applicable]
-- **My findings:** [what you discovered during reproduction; an
-  honest, evidenced cannot-reproduce that led you to re-pick or ask
-  the maintainer belongs here and costs you nothing]
+- **Commit showing reproduction:** [Base reviewed for the coverage gap](https://github.com/memtomem/memtomem/commit/d38baccc84d117430c949582c8bef52f0f954a06). [Test commit in the fork](https://github.com/adhik-adhikari/memtomem/commit/04acf0523ee14a9522fdb45607d04062113bffe4).
+- **Logs:** The existing migration file reported `195 passed, 1 skipped` on the base.
+- **Findings:** The integration assertion for `flat → dir` covers one normal label. It does not pin summary order or the branch where a dirty row already has a target directory.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
-
----
+- Tool: The repro-check rubric applied to the draft, the repository checkout, and pytest output.
+- What it produced: A runnable baseline and a description of the precise coverage gap.
+- Difficulties: A passing baseline by itself could not prove the gap.
+- What changed: Paired the baseline with a test inventory and then used the temporary mutation to demonstrate the new test's effect.
 
 ## Solution Approach
 
 **Analysis**
 
-[Your analysis of the root cause: what is causing the issue, traced
-to the files and functions involved.]
+In `context_bundle_cmd.py`, `_summarize_migrate_rows` counts rows by state and appends labels in a fixed sequence. `_migrate_action_label` maps the supported states, with a separate `dir_exists` condition for `refuse_dirty`. The coverage gap was at those boundaries.
 
 **Proposed Solution**
 
-[High-level description of your fix approach, and what you are
-deliberately NOT changing.]
+Add direct parametrized tests with real `MigrateRow` instances. Assert whole strings for supported states and use mixed input ordered differently from the expected summary. Keep the permanent change confined to the new test file.
 
 **Implementation Plan**
 
-1. [Modify file X to do Y]
-2. [Add or change Z]
-3. [Update tests]
-
-[Record deviations here as they happen: what changed mid-build and
-why. A recorded deviation is honest work; silent drift is not.]
+1. Add a minimal `MigrateRow` factory in `test_context_migrate_summary.py`.
+2. Assert empty input, counts, grouping, and fixed output order for `_summarize_migrate_rows`.
+3. Assert both directory cases for each supported state in `_migrate_action_label`.
+4. Swap the force/manual output blocks temporarily, confirm the fixed-order assertion fails, restore production code, and rerun the checks.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
-
----
+- Tool: The plan-check rubric applied to the local plan and comment draft.
+- What it produced: A one-file plan with a mutation test and exact expected strings.
+- Difficulties: The shared summary and the row label needed different inputs to cover their conditions.
+- What changed: Separate parametrized tests cover summary grouping and every label, with unknown states outside the contract.
 
 ## Testing Strategy
 
-[What observable checks prove the fix: your reproduction steps re-run
-against the built change (before and after), and the repo's own test
-suite or checks with the outcome shown. "Tests pass" with nothing
-observable named is not a strategy.]
+- **New tests:** `uv run --locked pytest -q packages/memtomem/tests/test_context_migrate_summary.py` reported `13 passed`.
+- **Mutation:** Temporarily putting the manual-skip group before the force group produced `1 failed, 12 passed`. The `fixed-order` case showed the two labels in the wrong sequence. Production code was restored.
+- **Migration regression suite:** Running the new file with `test_context_migrate.py` gave `208 passed, 1 skipped`.
+- **Repository checks:** Ruff lint passed across the documented paths and Ruff format reported `1246 files already formatted`. The broad non-Ollama run did not pass. Four embedding failures reproduced on the unmodified base because the SOCKS proxy dependency was missing. All four passed on retry with `uv run --locked --with socksio pytest` and those four test IDs. A passing full-suite result is still pending.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
-
----
+- Tool: pytest and Ruff against the commands in the ship manifest.
+- What it produced: A failing assertion for the temporary mutation and green targeted tests, lint, and formatting on the actual patch.
+- Difficulties: The full non-Ollama run takes longer than the targeted checks.
+- What changed: Recorded the full-run status separately from the completed checks.
 
 ## Implementation Notes
 
-[A running log, added to as you work. Date each entry. What you
-built, decisions you made when you made them, wrong turns included.]
+**November 25, 2026**
 
-**[Date]**
+Checked the tracker and GitHub thread, read `CONTRIBUTING.md`, and claimed #3256. Installed the locked workspace and captured the baseline before adding the new tests.
 
-[Entry]
+**November 25, 2026**
 
-**[Date]**
-
-[Entry]
+Added the single test file on `test/3256-migration-summary`. Reversed two output groups temporarily to see whether the mixed test caught it, then restored the source. Reviewed the fork commit to confirm it contains only the test file.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
-
----
+- Tool: Git, the local plan, and a temporary source mutation.
+- What it produced: A one-file commit and a before/after assertion result.
+- Difficulties: The mutation involved a production file temporarily.
+- What changed: Restored that file immediately and verified it was absent from the branch diff.
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when opened]
+**PR Link:** https://github.com/memtomem/memtomem/pull/3611
 
-**PR Description:** [what the PR says; much of the content above
-adapts into it]
+**PR Description:** Adds direct pytest checks for the CLI/MCP migration summary and action labels. The PR links #3256, includes the baseline, mutation result, and focused checks, and discloses Codex assistance.
 
 **Maintainer Feedback:**
 
-- [Date]: [feedback received, or "none yet"; silence is a normal
-  state and costs you nothing]
-- [Date]: [how you addressed it]
+- November 25, 2026: None yet. The CLA bot posted a signature request. No human reviews had been submitted at the time of the state check.
 
-**Status:** [Awaiting review / Iterating / Merged / Closed. The
-status is a fact you record, never a grade: the PR is graded as
-opened.]
+**Status:** Awaiting review (draft).
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
-
----
+- Tool: Local ship manifest, GitHub diff and PR checks, and a review against the course PR precheck rubric.
+- What it produced: A one-file upstream draft PR with a reproducible test failure and passing focused checks.
+- Difficulties: The Claude-backed automated precheck was unavailable. The broad run hit environment failures, including four reproduced on the base; no full-suite pass is claimed.
+- What changed: Recorded the completed checks and the pending ones in the PR body. Kept the PR in draft for the remaining checks.
 
 ## Learnings and Reflections
 
 **Technical Skills Gained**
 
-[What you learned technically, named concretely.]
+The tests show how to verify an ordered summary with deliberately shuffled inputs. A temporary mutation gave a way to show one assertion catches a real regression in formatting, even though the patch itself only adds tests.
 
 **Challenges Overcome**
 
-[What was hard and how you solved it; point at the real events, the
-Toolkit blocks above are full of them.]
+Some tracker results still offered a Claim button even after another contributor had finished the work. Checking the current GitHub issue, pull requests, and repository files prevented duplicate work.
 
 **What I'd Do Differently Next Time**
 
-[Reflection on your process.]
-
----
+I would start with a narrower search and verify the issue's coverage gap before narrowing the testing plan. I would also run the project's broader checks earlier, since they take much longer than the focused cases.
 
 ## Resources Used
 
-[What actually helped, not a reading list. List things this story
-already shows you using: the doc you followed to set the environment
-up, the thread that explained the bug, the person who answered you.
-One real entry beats ten plausible ones.]
-
-- [Link to documentation that helped]
-- [Discussion, issue, or post that helped]
+- [CodePath AI301 Assignment 5 rubric](https://courses.codepath.org/courses/ai301/pages/grading_rubrics#heading-assignment-5-contribution-repository-units-5-8)
+- [memtomem contributing guide](https://github.com/memtomem/memtomem/blob/main/CONTRIBUTING.md)
+- [Issue #3256 and its expected cases](https://github.com/memtomem/memtomem/issues/3256)
